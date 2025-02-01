@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  backend_frontend:
+    build: ./backend+frontend
+    container_name: backend_frontend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    restart: always
+
+  db:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "1000:27017"
+    restart: always
+
+    
+  
